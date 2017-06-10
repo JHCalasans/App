@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="_QPedido.Views.Inicial"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary" Text="Sair"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout>
+        <AbsoluteLayout HeightRequest="150">
+            <BoxView BackgroundColor="#c76b20" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+
+        </AbsoluteLayout>
+
+
+        <RelativeLayout HeightRequest="60">
+            <ListView Rotation="270"  ItemsSource="{Binding Lista}" RowHeight="100" HasUnevenRows="False" 
+                      SeparatorVisibility="Default" SeparatorColor="Black" 
+                      RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-30}"
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.45, Constant=30}"
+                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=80}"
+                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                <ListView.ItemTemplate >
+                    <DataTemplate >
+                        <ViewCell>
+                            <StackLayout Rotation="90" Padding="1" TranslationX="-10">
+
+                                        <Label Text="{Binding Nome}"  ></Label>
+                                        <Label Text="{Binding Sobrenome}"  FontSize="8"></Label>
+
+                            </StackLayout>
+
+                            <!--<ContentView  Rotation="90" Padding="1" TranslationX="60">
+                               
+                                --><!-- <Image Source="{Binding Source}" HeightRequest="58" WidthRequest="58" Aspect="AspectFill"></Image>--><!--
+                            </ContentView>-->
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativeLayout>
+
+
+
+       <!--<AbsoluteLayout HeightRequest="400">
+
+                <BoxView  BackgroundColor="White" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
+
+            <Frame OutlineColor="Silver" BackgroundColor="#c76b20"  AbsoluteLayout.LayoutBounds="0.5,0.2,0.95,0.9" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Fill" HasShadow="True"></Frame>
+
+           
+
+
+        </AbsoluteLayout>-->
+
+
+
+       
+
+    </StackLayout>
+  
+</ContentPage>

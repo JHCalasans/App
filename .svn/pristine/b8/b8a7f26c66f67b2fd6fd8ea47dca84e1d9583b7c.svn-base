@@ -1,0 +1,31 @@
+﻿using Prism.Commands;
+using Prism.Mvvm;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using _QPedido.Models;
+
+namespace _QPedido.ViewModels
+{
+    public class InicialViewModel : BindableBase
+    {
+        private ObservableCollection<Usuario> _lista;
+
+        public ObservableCollection<Usuario> Lista
+        {
+            get { return _lista; }
+            set { SetProperty(ref _lista, value); }
+        }
+
+        public string Teste { get; set; }
+
+        public InicialViewModel()
+        {
+            Lista = new ObservableCollection<Usuario>();
+            Teste = "Teste";
+            for (int i = 0; i < 10; i++)
+                 Lista.Add(new Usuario(){Nome = $"Teste {i}", Sobrenome = $"Sobrenome {i}"});
+        }
+    }
+}
