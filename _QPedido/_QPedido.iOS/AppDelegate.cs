@@ -32,6 +32,7 @@ namespace _QPedido.iOS
             global::Xamarin.Forms.Forms.Init();
             //INICIANDO RESOLVER PARA PEGAR DETALHES DA TELA
             var resolverContainer = new SimpleContainer();
+            Resolver.ResetResolver();
             resolverContainer.Register<IDevice>(t => AppleDevice.CurrentDevice);
             Resolver.SetResolver(resolverContainer.GetResolver());
 

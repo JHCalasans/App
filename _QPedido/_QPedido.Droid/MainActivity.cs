@@ -27,6 +27,7 @@ namespace _QPedido.Droid
 
             //INICIANDO RESOLVER PARA PEGAR DETALHES DA TELA
             var resolverContainer = new SimpleContainer();
+            Resolver.ResetResolver();
             resolverContainer.Register<IDevice>(t => AndroidDevice.CurrentDevice);
             Resolver.SetResolver(resolverContainer.GetResolver());
 

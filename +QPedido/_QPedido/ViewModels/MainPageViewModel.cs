@@ -47,7 +47,7 @@ namespace _QPedido.ViewModels
         private void MudarParaSegunda()
         {
             var param = new NavigationParameters();
-            param.Add("usuario", new Usuario(){Nome = "Joao" , Sobrenome = "Teste"});
+           // param.Add("usuario", new Usuario(){Nome = "Joao" , Sobrenome = "Teste"});
             _navigationService.NavigateAsync("Segunda", param);
         }
     }

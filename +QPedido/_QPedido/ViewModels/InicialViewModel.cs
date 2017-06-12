@@ -15,9 +15,11 @@ using _QPedido.Models;
 
 namespace _QPedido.ViewModels
 {
-    public class InicialViewModel : BindableBase, INavigationAware
+    public class InicialViewModel : BaseViewModel, INavigationAware
     {
         private readonly INavigationService _navigationService;
+
+        private readonly IPageDialogService _pageDialogService;
 
         private ObservableCollection<Usuario> _lista;
 
@@ -36,10 +38,11 @@ namespace _QPedido.ViewModels
 
         public DelegateCommand ConfiguracoesCommand { get; set; }
 
-        public InicialViewModel(INavigationService navigationService)
+        public InicialViewModel(INavigationService navigationService, IPageDialogService  pageDialogService)
         {
             _navigationService = navigationService;
-             Lista = new ObservableCollection<Usuario>();
+            _pageDialogService = pageDialogService;
+            Lista = new ObservableCollection<Usuario>();
             
             AjusteTamanhoImagens();
             ConfiguracoesCommand = new DelegateCommand(MudarParaConfiguracoes);

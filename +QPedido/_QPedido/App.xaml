@@ -2,6 +2,50 @@
 <prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
-                        x:Class="_QPedido.App">
+                        x:Class="_QPedido.App"
+                        xmlns:converter="clr-namespace:XLabs.Forms.Converter;assembly=XLabs.Forms">
+
+
+  <Application.Resources>
+
+      <ResourceDictionary>
+
+          <!-- Styles -->
+          <Style TargetType="NavigationPage">
+              <Setter Property="BarBackgroundColor" Value="#1E0C98"/>
+              <Setter Property="BarTextColor" Value="White"/>
+          </Style>
+          <!-- Styles -->
+          <x:Int32 x:Key="borderRadius">30</x:Int32>
+          <Color x:Key="btnBackgroundColor">Green</Color>
+          <!--Se remover a chave Key será aplicado apra todos os botoes e nos botões não será necessário definir a tag style-->
+
+          <Style x:Key="labelStyle" TargetType="Label" >
+              <Setter Property="TextColor" Value="#FF7F00"></Setter>
+              <Setter Property="FontAttributes" Value="Bold"></Setter>
+              <Setter Property="FontSize" Value="30"></Setter>
+              <Setter Property="FontFamily">
+                  <Setter.Value>
+                      <OnPlatform x:TypeArguments="x:String">
+                          <OnPlatform.iOS>MarkerFelt-Thin</OnPlatform.iOS>
+                          <OnPlatform.Android></OnPlatform.Android>
+                      </OnPlatform>
+                  </Setter.Value>
+              </Setter>
+          </Style>
+          <Style x:Key="labelMenorStyle" TargetType="Label" BasedOn="{StaticResource labelStyle}" >
+              <Setter Property="FontSize" Value="15"></Setter>
+          </Style>
+          <Style x:Key="entryStyle" TargetType="Entry" >
+              <Setter Property="TextColor" Value="#FF7F00"></Setter>
+              <Setter Property="FontAttributes" Value="Bold"></Setter>
+
+          </Style>
+
+        <converter:InverseBooleanConverter x:Key="BooleanConverter"></converter:InverseBooleanConverter>
+
+      </ResourceDictionary>
+
+  </Application.Resources>
 
 </prism:PrismApplication>

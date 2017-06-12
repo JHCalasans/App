@@ -3,8 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="_QPedido.Views.CadastroUsuario">
+             x:Class="_QPedido.Views.CadastroUsuario"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             NavigationPage.HasNavigationBar="True">
 
+
+    <AbsoluteLayout>
+
+
+
+        <TableView Intent="Form" AbsoluteLayout.LayoutBounds="0,0,1,0.5" AbsoluteLayout.LayoutFlags="All">
+            <TableRoot>
+                <TableSection>
+                    <EntryCell Placeholder="Nome" Text="{Binding UsuarioCadastro.Nome}"></EntryCell>
+                    <EntryCell Placeholder="Telefone" ></EntryCell>
+                    <EntryCell Placeholder="Senha"></EntryCell>
+                    <SwitchCell Text="Cadastrar Email?" On="False" x:Name="SwitchEmail"></SwitchCell>
+                </TableSection>
+            </TableRoot>
+
+        </TableView>
+        <Entry Placeholder="Email" IsVisible="{Binding Source={x:Reference SwitchEmail}, Path=On}" Text="{Binding UsuarioCadastro.Email}"
+               AbsoluteLayout.LayoutBounds="0,0.41,1,0.08" AbsoluteLayout.LayoutFlags="All"></Entry>
+
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0.8,1,0.08" AbsoluteLayout.LayoutFlags="All">
+            <controls:ImageButton Text="Cadastrar"  HorizontalOptions="CenterAndExpand"  BorderWidth="3" WidthRequest="300" BorderColor="Black" BackgroundColor="Silver" TextColor="Black" Command="{Binding CadastrarCommand}" ></controls:ImageButton>
+        </StackLayout>
+
+    </AbsoluteLayout>
     
   
 </ContentPage>

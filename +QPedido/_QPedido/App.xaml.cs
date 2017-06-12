@@ -16,7 +16,7 @@ namespace _QPedido
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("NavigationPage/Teste");
+            NavigationService.NavigateAsync("NavigationPage/CadastroUsuario");
         }
 
         protected override void RegisterTypes()
