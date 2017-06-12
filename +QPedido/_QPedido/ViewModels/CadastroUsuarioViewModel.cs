@@ -34,37 +34,40 @@ namespace _QPedido.ViewModels
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
             CadastrarCommand = new DelegateCommand(BuscarUsuarios);
-              
+             UsuarioCadastro = new Usuario(); 
 
         }
 
         private async void BuscarUsuarios()
         {
-            //UserDialogs.Instance.ShowLoading("Carregando", MaskType.Gradient);
-            //try
-            //{
-            //    var client = new HttpClient();
-            //    client.BaseAddress = new Uri("http://192.168.0.15:8080/");
-                
-            //    var content = new StringContent(JsonConvert.SerializeObject(Usuario), Encoding.UTF8, "application/json");
+           
+            try
+            {
+                UserDialogs.Instance.ShowLoading("Carregando", MaskType.Gradient);
+                var client = new HttpClient();
+                client.BaseAddress = new Uri("http://192.168.0.15:8080/");
 
-            //    var response = await client.PostAsync("qPedido/ws/usuario", content);
+                var json = JsonConvert.SerializeObject(UsuarioCadastro);
 
-            //    if (response.IsSuccessStatusCode)
-            //    {
+                var content = new StringContent(json , Encoding.UTF8, "application/json");
 
-            //       await _pageDialogService.DisplayAlertAsync("Aviso", "Gravado com Sucesso", "Ok");
+                var response = await client.PostAsync("qPedido/ws/usuario", content);
 
-            //    }
+                if (response.IsSuccessStatusCode)
+                {
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Console.WriteLine(ex.Message);
+                    await _pageDialogService.DisplayAlertAsync("Aviso", "Gravado com Sucesso", "Ok");
 
-            //    await _pageDialogService.DisplayAlertAsync("Aviso", "Falha ao criar usuário", "Ok");
-            //}
-            //UserDialogs.Instance.HideLoading();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine(ex.Message);
+
+                await _pageDialogService.DisplayAlertAsync("Aviso", "Falha ao criar usuário", "Ok");
+            }
+            UserDialogs.Instance.HideLoading();
         }
 
 

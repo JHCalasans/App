@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Acr.UserDialogs;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -31,8 +31,9 @@ namespace _QPedido.Droid
             resolverContainer.Register<IDevice>(t => AndroidDevice.CurrentDevice);
             Resolver.SetResolver(resolverContainer.GetResolver());
 
-            App.ScreenWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
-            App.ScreenWHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
+            UserDialogs.Init(this);
+            //App.ScreenWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
+            //App.ScreenWHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
             LoadApplication(new App());
         }
     }

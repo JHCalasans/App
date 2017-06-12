@@ -6,9 +6,7 @@ namespace _QPedido
 {
     public partial class App : PrismApplication
     {
-         public static  int ScreenWidth;
-
-        public static int ScreenWHeight;
+        
 
         public App(IPlatformInitializer initializer = null) : base(initializer) { }
 

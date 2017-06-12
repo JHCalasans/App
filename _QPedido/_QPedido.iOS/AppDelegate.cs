@@ -36,9 +36,8 @@ namespace _QPedido.iOS
             resolverContainer.Register<IDevice>(t => AppleDevice.CurrentDevice);
             Resolver.SetResolver(resolverContainer.GetResolver());
 
-            App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
-            App.ScreenWHeight = (int)UIScreen.MainScreen.Bounds.Height;
-            var teste =  (double)UIScreen.MainScreen.Scale;
+            //App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
+            //App.ScreenWHeight = (int)UIScreen.MainScreen.Bounds.Height;
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);

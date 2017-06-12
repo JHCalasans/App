@@ -8,22 +8,20 @@ namespace _QPedido.Models
 {
     public class Usuario
     {
-        public string Nome { get; set; }
+        public string nome { get; set; }
 
-        public string Telefone { get; set; }
+        public string telefone { get; set; }
 
-        public string Email { get; set; }
+        public string email { get; set; }
+        
+        public byte[] imgUsuario { get; set; }
 
-        public string Senha { get; set; }
+        public  DateTime dataCriacao { get; set; }
 
-        public byte[] ImgUsuario { get; set; }
+        public DateTime dataNascimento { get; set; }
 
-        public  DateTime DataCriacao { get; set; }
+        public Boolean ativo { get; set; }
 
-        public DateTime DataNascimento { get; set; }
-
-        public Boolean Ativo { get; set; }
-
-        public string Cpf { get; set; }
+        public string senha { get; set; }
     }
 }

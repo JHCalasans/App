@@ -39,7 +39,7 @@ namespace _QPedido.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             if (parameters.ContainsKey("usuario"))
-                Nome = ((Usuario)parameters["usuario"]).Nome;
+                Nome = ((Usuario)parameters["usuario"]).nome;
         }
     }
 }
