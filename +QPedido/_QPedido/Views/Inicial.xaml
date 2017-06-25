@@ -21,6 +21,7 @@
 
     <StackLayout>
         <AbsoluteLayout HeightRequest="150" >
+                                                                       <!--x,y,width,height-->
             <BoxView BackgroundColor="#1E0C98" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
 
         </AbsoluteLayout>
@@ -33,7 +34,7 @@
 
             <!--BOTÃO DE LER QRCODE-->
 
-            <!--BOTÃO PARA O IPHONE-->
+            <!--BOTÃO PARA O IPHONE-->                                                                                       
             <Button Image="qrcode.png"   AbsoluteLayout.LayoutFlags="All" BackgroundColor="#F9955F" AbsoluteLayout.LayoutBounds="0.2,0.2,0.3,0.3"
                     BorderColor="Black" BorderWidth="2" BorderRadius="10" IsVisible="{Binding IsAndroid, Converter={StaticResource BooleanConverter}}"></Button>
 
@@ -85,7 +86,7 @@
             <controls:ImageButton BorderColor="Black" BackgroundColor="#89BDF9" IsVisible="{Binding IsAndroid}"
                                   AbsoluteLayout.LayoutBounds="0.2,0.8,0.35,0.3"
                                   AbsoluteLayout.LayoutFlags="All" Source="buscar.png"
-                                  Orientation="ImageOnTop"  
+                                  Orientation="ImageOnTop"  Command="{Binding BuscarCommand}"
                                   FontAttributes="Bold" TextColor="Black"  BorderWidth="2" BorderRadius="10" 
                                   ImageHeightRequest="{Binding ImgSize}"  ImageWidthRequest="{Binding ImgSize}">
 

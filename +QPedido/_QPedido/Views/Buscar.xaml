@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="_QPedido.Views.Buscar"
+             >
+    
+    <StackLayout>
+        <ListView ItemsSource="{Binding Lista}" ItemSelected="ListView_OnItemSelected" x:Name="ListaBusca" HasUnevenRows="False" >
+            <ListView.Behaviors>
+                <behaviors:EventToCommandBehavior EventName="ItemTapped" Command="{Binding ItemTappedCommand}"  EventArgsParameterPath="Item"
+                                                  EventArgsConverter="{StaticResource ItemTappedConverter}" CommandParameter="{Binding Opcoes}"></behaviors:EventToCommandBehavior>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding bairro}"></Label>
+                            <Label Text="{Binding empresa.nome}"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </StackLayout>
+  
+</ContentPage>

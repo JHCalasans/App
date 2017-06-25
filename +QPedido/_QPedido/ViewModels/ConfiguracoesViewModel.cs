@@ -25,9 +25,7 @@ namespace _QPedido.ViewModels
         private readonly IPageDialogService _dialogService;
 
         private ObservableCollection<Opcoes> _lista;
-        
-
-        public DelegateCommand ItemTappedCommand { get; set; }
+        public DelegateCommand<Opcoes> ItemTappedCommand => new DelegateCommand<Opcoes>(ItemTapped);
 
         public ObservableCollection<Opcoes> Lista
         {
@@ -40,16 +38,15 @@ namespace _QPedido.ViewModels
             _dialogService = dialogService;
 
             Lista = new ObservableCollection<Opcoes>();
-            ItemTappedCommand = new DelegateCommand(ItemTapped);
             for (int i = 0; i < 4; i++)
             {
                 Lista.Add(new Opcoes( $"Opção {i}"));
             }
         }
 
-        private void ItemTapped()
+        private async void ItemTapped(Opcoes opcao)
         {
-            _dialogService.DisplayAlertAsync("Aviso", "Tocou", "OK");
+            await _dialogService.DisplayAlertAsync("Aviso", opcao.Descricao, "OK");
         }
 
 

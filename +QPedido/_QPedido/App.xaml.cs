@@ -14,19 +14,18 @@ namespace _QPedido
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("NavigationPage/CadastroUsuario");
+            NavigationService.NavigateAsync("NavigationPage/Inicial");
         }
 
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<NavigationPage>();
-            Container.RegisterTypeForNavigation<MainPage>();
             Container.RegisterTypeForNavigation<Segunda>();
-            Container.RegisterTypeForNavigation<Teste>();
             Container.RegisterTypeForNavigation<Inicial>();
             Container.RegisterTypeForNavigation<Perfil>();
             Container.RegisterTypeForNavigation<Configuracoes>();
             Container.RegisterTypeForNavigation<CadastroUsuario>();
+            Container.RegisterTypeForNavigation<Buscar>();
         }
 
         public App()

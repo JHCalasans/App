@@ -17,7 +17,15 @@ namespace _QPedido.ViewModels
         {
             get
             {
-                return "http://www.idotecnologia.com.br/";
+                return "";
+            }
+        }
+
+        public static string ServidorLocal
+        {
+            get
+            {
+                return "http://192.168.0.15:8080/";
             }
         }
     }

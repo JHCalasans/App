@@ -38,6 +38,8 @@ namespace _QPedido.ViewModels
 
         public DelegateCommand ConfiguracoesCommand { get; set; }
 
+        public DelegateCommand BuscarCommand => new DelegateCommand(MudarParaBusca);
+
         public InicialViewModel(INavigationService navigationService, IPageDialogService  pageDialogService)
         {
             _navigationService = navigationService;
@@ -67,7 +69,15 @@ namespace _QPedido.ViewModels
 
         private void MudarParaConfiguracoes()
         {
+            //var param = new NavigationParameters();
+            //// param.Add("usuario", new Usuario(){Nome = "Joao" , Sobrenome = "Teste"});
+            //_navigationService.NavigateAsync("Segunda", param);
             _navigationService.NavigateAsync("Configuracoes");
+        }
+
+        private void MudarParaBusca()
+        {
+            _navigationService.NavigateAsync("Buscar");
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

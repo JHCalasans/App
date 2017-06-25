@@ -3,7 +3,8 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
                         x:Class="_QPedido.App"
-                        xmlns:converter="clr-namespace:XLabs.Forms.Converter;assembly=XLabs.Forms">
+                        xmlns:converter="clr-namespace:XLabs.Forms.Converter;assembly=XLabs.Forms"
+                        xmlns:helpers="clr-namespace:_QPedido.Helpers;assembly=_QPedido">
 
 
   <Application.Resources>
@@ -42,7 +43,12 @@
 
           </Style>
 
+        <!--Converter de booleano-->
         <converter:InverseBooleanConverter x:Key="BooleanConverter"></converter:InverseBooleanConverter>
+       
+        
+        <!--Converter de ItemTapped Event -->
+        <helpers:ItemTappedEventArgsConverter x:Key="ItemTappedConverter"></helpers:ItemTappedEventArgsConverter>
 
       </ResourceDictionary>
 

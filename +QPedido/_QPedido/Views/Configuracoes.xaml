@@ -9,10 +9,11 @@
 
     
       <StackLayout >
-        <StackLayout HeightRequest="250">
+        <StackLayout HeightRequest="200">
             <ListView ItemsSource="{Binding Lista}" ItemSelected="ListView_OnItemSelected" x:Name="listView" HasUnevenRows="False" >
                     <ListView.Behaviors>
-                    <behaviors:EventToCommandBehavior EventName="ItemTapped" Command="{Binding ItemTappedCommand}"></behaviors:EventToCommandBehavior>
+                    <behaviors:EventToCommandBehavior EventName="ItemTapped" Command="{Binding ItemTappedCommand}"  EventArgsParameterPath="Item"
+                                                      EventArgsConverter="{StaticResource ItemTappedConverter}" CommandParameter="{Binding Opcoes}"></behaviors:EventToCommandBehavior>
                 </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
